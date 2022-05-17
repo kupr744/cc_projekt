@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: primeservice-deployment
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: primeservice
+
+  template:
+    metadata:
+      labels:
+        app: primeservice
+
+    spec:
+      containers:
+        - name: primeservice
+          image: username/appname #TODO DockerHub Containername
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3001
+          resources:
+            limits:
+              memory: 512Mi
+              cpu: "1"
+          requests:
+            memory: 256Mi
+            cpu: "0.2"
+          
