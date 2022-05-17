@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: primeservice-deployment
+  name: appserver-deployment
 spec:
-  replicas: 4
+  replicas: 2
   selector:
     matchLabels:
-      app: primeservice
+      app: appserver
 
   template:
     metadata:
       labels:
-        app: primeservice
+        app: appserver
 
     spec:
       containers:
-        - name: primeservice
+        - name: appserver
           image: username/appname #TODO DockerHub Containername
           imagePullPolicy: Always
           ports:
