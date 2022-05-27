@@ -2,10 +2,12 @@ const express = require('express')
 const app = express()
 const path = require('path')
 
-const port = 3000
+require('dotenv').config();
+
+const port = process.env.NODE_ENV === 'development' ? 3000 : null;
 
 app.get('/', (req, res) => {
-	res.sendFile(path.join(__dirname.split('backend')[0] + 'static/index.html'))
+	res.sendFile(path.join(__dirname + '/index.html'))
 })
 
 app.listen(port, () => {
