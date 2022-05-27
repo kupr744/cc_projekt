@@ -1,10 +1,14 @@
 const express = require('express')
 const app = express()
-const path = require('path')
 const cors = require('cors')
-const port = 3001
 
-app.use(cors())
+require('dotenv').config();
+
+const port = process.env.NODE_ENV === 'development' ? 3001 : null;
+
+if(process.env.NODE_ENV === 'development') {
+  app.use(cors());
+}
 
 function prime(from = 1, to) {
   var prime = true;

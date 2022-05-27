@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset=UTF-8>
+    <title>Hello World!</title>
+  </head>
+  <body>
+    <div style="text-align: center;">
+      <h1>
+        hello world!
+      </h1>
+      <script language="JavaScript" type="text/javascript" async>        
+        async function handleSubmit() {
+          var from = document.getElementById("from").value === "" ? 0 : document.getElementById("from").value;
+          var to = document.getElementById("to").value;
+
+          console.log('from', from , 'to', to);
+
+          await fetch('http://localhost:3001/prime/' + to + '/' + from, {
+            method: 'GET',
+            headers: {
+              'Allow-Control-Allow-Origin': '*',
+              'Content-Type': 'application/json'
+            }
+          }).then(res => res.json()
+          ).then(data => {
+            console.log(data.result);
+            document.getElementById("response").textContent = "result: "+data.result;
+          }).catch(err => {
+            console.log(err);
+            document.getElementById("response").textContent = "error: "+err;
+          });          
+        }
+
+        document.write('<div><form onSubmit="handleSubmit(); return false;">'+
+          '<input type="number" id="from">from</input></br><input type="number" id="to" required>to</input>'+
+          '</br><button type="submit">find primes</button></form></div><div style="word-break: break-all;" id="response"></div>');
+      </script>
+    </div>
+  </body>
+</html>
