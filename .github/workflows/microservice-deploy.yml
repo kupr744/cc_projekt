@@ -22,7 +22,8 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: ${{ secrets.DOCKERHUB_USERNAME }}/prime-api
-          tags-semver: true
+          tags: |
+            type=semver,pattern={{raw}}
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
@@ -39,6 +40,6 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
-          context: ./web_application/prime-api/Dockerfile
+          file: ./web_application/prime-api/Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
