@@ -12,9 +12,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    defaults:
-      run: 
-        working-directory: web_application/prime-api
 
     steps:
       - name: Docker meta
@@ -37,13 +34,13 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       
-      # - name: Build and push
-      #   uses: docker/build-push-action@v2
-      #   with:
-      #     context: ./web_application/prime-api/
-      #     file: web_application/prime-api/Dockerfile
-      #     push: true
-      #     tags: ${{ steps.meta.outputs.tags }}
-
       - name: Build and push
-        run: docker build -t ${{ steps.meta.outputs.tags }} .
+        uses: docker/build-push-action@v2
+        with:
+          context: web_application/prime-api/
+          file: web_application/prime-api/Dockerfile
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+
+      # - name: Build and push
+      #   run: docker build -t ${{ steps.meta.outputs.tags }} .
