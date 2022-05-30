@@ -37,13 +37,13 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       
-      - name: Build and push
-        uses: docker/build-push-action@v2
-        with:
-          context: ./web_application/prime-api/
-          file: web_application/prime-api/Dockerfile
-          push: true
-          tags: ${{ steps.meta.outputs.tags }}
-
       # - name: Build and push
-      #   run: docker build -t kupr744/test:1 -f web_application/prime-api/Dockerfile ./web_application/prime-api/
+      #   uses: docker/build-push-action@v2
+      #   with:
+      #     context: ./web_application/prime-api/
+      #     file: web_application/prime-api/Dockerfile
+      #     push: true
+      #     tags: ${{ steps.meta.outputs.tags }}
+
+      - name: Build and push
+        run: docker build -t kupr744/test:${{ steps.meta.outputs.tags }} .
