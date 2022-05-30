@@ -39,6 +39,6 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
-          context: ./web_application/prime-api
+          context: ./web_application/prime-api/Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
