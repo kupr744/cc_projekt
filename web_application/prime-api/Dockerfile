@@ -1,10 +1,10 @@
 FROM node:18-buster-slim
 
-WORKDIR /usr/app
+WORKDIR /app
 
-COPY ./package*.json ./usr/app
+COPY ./package.json ./app
 
-RUN npm install
+RUN npm install --production
 
 COPY ./ ./usr/app
 
