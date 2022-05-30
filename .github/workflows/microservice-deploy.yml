@@ -23,7 +23,7 @@ jobs:
         with:
           images: ${{ secrets.DOCKERHUB_USERNAME }}/prime-api
           tags: |
-            type=semver,pattern={{raw}}
+            type=raw,value=1
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
