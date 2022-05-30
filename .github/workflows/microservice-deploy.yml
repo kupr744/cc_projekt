@@ -14,7 +14,7 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     defaults:
       run: 
-        working-directory: ./web_application/prime-api
+        working-directory: web_application/prime-api
 
     steps:
       - name: Docker meta
@@ -46,4 +46,4 @@ jobs:
       #     tags: ${{ steps.meta.outputs.tags }}
 
       - name: Build and push
-        run: docker build -t kupr744/test:${{ steps.meta.outputs.tags }} .
+        run: docker build -t ${{ steps.meta.outputs.tags }} .
