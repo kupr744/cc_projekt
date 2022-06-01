@@ -14,16 +14,15 @@ app.get('/', (req, res) => {
 })
 
 app.get('/test', async (req, res) => {
-  await axios('http://10.104.116.129/prime/10/1', 
+  await axios('http://primeservice-clusterip-service/prime/10/1', 
     {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
         }
         })
-        .then(data => res.send(data))
+        .then(data => res.send(data.data))
         .catch(err => res.send(err))  
-  res.status(200).send('test')
 })
 
 app.listen(port, () => {
