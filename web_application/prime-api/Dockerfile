@@ -1,5 +1,4 @@
-FROM node:latest
-
+FROM node:18-buster-slim
 RUN cd .. 
 
 WORKDIR /src/api

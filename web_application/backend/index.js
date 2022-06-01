@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/test', async (req, res) => {
-  await axios('http://primeservice-clusterip-service/prime/10/1', 
+  await axios('http://10.104.116.129/prime/10/1', 
     {
       method: 'GET',
       headers: {
