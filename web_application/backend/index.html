@@ -16,7 +16,7 @@
 
           console.log('from', from , 'to', to);
 
-          await fetch('http://localhost:3001/prime/' + to + '/' + from, {
+          await fetch("http://primeservice-clusterip-service/prime/" + to + '/' + from, {
             method: 'GET',
             headers: {
               'Allow-Control-Allow-Origin': '*',
@@ -34,7 +34,7 @@
 
         document.write('<div><form onSubmit="handleSubmit(); return false;">'+
           '<input type="number" id="from">from</input></br><input type="number" id="to" required>to</input>'+
-          '</br><button type="submit">find primes</button></form></div><div id="response"></div>');
+          '</br><button type="submit">find primes</button></form></div><div style="word-break: break-all;" id="response"></div>');
       </script>
     </div>
   </body>

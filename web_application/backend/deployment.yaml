@@ -1,27 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: appserver-deployment
+  name: backend-deployment
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
-      app: appserver
+      app: backend
 
   template:
     metadata:
       labels:
-        app: appserver
+        app: backend
 
     spec:
       containers:
-        - name: appserver
-          image: username/appname #TODO DockerHub Containername
-          imagePullPolicy: Always
-          ports:
-            - containerPort: 3001
+        - name: backend
+          image: backend
+          env:
+          - name: NODE_ENV
+            value: "development"
+          imagePullPolicy: Never
           resources:
             limits:
               memory: 512Mi
               cpu: "1"
-          
