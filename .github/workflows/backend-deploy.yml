@@ -2,6 +2,8 @@ name: backend deploy pipeline
 
 on:
   push:
+    tags:
+      - 'v*'
     branches: 
       - main
 
@@ -19,7 +21,7 @@ jobs:
         with:
           images: ${{ secrets.DOCKERHUB_USERNAME }}/backend
           tags: |
-            type=raw,value=1
+            type=semver,pattern={{raw}}
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
