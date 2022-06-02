@@ -1,13 +1,9 @@
 name: µService deploy pipeline
 
 on:
-  workflow_run:
-    push: 
-      tags:
-        - 'v*'
-    workflows: ["µService pipeline"]
-    types: 
-      - completed
+  push: 
+    tags:
+      - 'v*'
 
 jobs:
   deploy:
