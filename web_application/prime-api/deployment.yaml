@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: primeservice-deployment
+  name: prime-api
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: primeservice
+      app: prime-api
 
   template:
     metadata:
       labels:
-        app: primeservice
+        app: prime-api
 
     spec:
       containers:
-        - name: primeservice
-          image: primeservice
+        - name: prime-api
+          image: prime-api
           env:
           - name: NODE_ENV
             value: "development"
