@@ -16,7 +16,7 @@
 
           console.log('from', from , 'to', to);
 
-          await fetch('http://localhost:3001/prime/' + to + '/' + from, {
+          await fetch("http://primeservice-clusterip-service/prime/" + to + '/' + from, {
             method: 'GET',
             headers: {
               'Allow-Control-Allow-Origin': '*',

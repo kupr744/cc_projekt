@@ -6,18 +6,13 @@
 
 # start web app
 
-### 1. start backend
-- change to backend folder
-- npm install
-- npm start
-- open localhost:3000 in browser
+### 1. Start Kubernetes Cluster
+### 2. Apply backend deployment.yaml and service.yaml
+### 3. Apply primeservice deployment.yaml and service.yaml
 
-**docker run -d --rm -p 3000:3000 --env NODE_ENV=development 'imageName'**
+### 4. Enter localhost:30005/ 
 
-### 2. start prime-api
-- change to prime-api folder
-- npm install
-- npm start
-- __TEST API__ curl localhost:3001/prime/"insert number to"/"insert number from optional"
 
-**docker run -d --rm -p 3001:3001 --env NODE_ENV=development 'imageName'**
+### Propleme:
+await fetch("http://primeservice-clusterip-service/prime/" + to + '/' + from , ... 
+Funktioniert nicht, vermutlich da er den primeservice-clusterip-service nicht findet, richtig konfiguriert sollte er aber sein. 
