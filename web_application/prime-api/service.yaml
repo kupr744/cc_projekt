@@ -3,7 +3,7 @@ apiVersion: v1
 kind: Service
 
 metadata:
-  name: prime-api-clusterip-service
+  name: prime-api-service
 
 spec:
   type: ClusterIP

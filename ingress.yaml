@@ -1,0 +1,32 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: myingress
+  labels:
+    name: myingress
+spec:
+  defaultBackend:
+    service:
+      name: backend-service
+      port:
+        number: 80
+  rules:
+  - host: localhost
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: backend-service
+            port: 
+              number: 80
+      - pathType: Prefix
+        path: "/prime"
+        backend:
+          service:
+            name: prime-api-service
+            port:
+              number: 80
+  ingressClassName: nginx
+
