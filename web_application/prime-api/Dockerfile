@@ -1,12 +1,11 @@
 FROM node:18-buster-slim
-RUN cd .. 
 
-WORKDIR /src/api
+WORKDIR /app
 
-COPY ["package.json", "package-lock.json", "./"]
+COPY package.json /app
 
-RUN npm install
+RUN npm install --production
 
-COPY . .
+COPY . /app
 
-CMD ["node","index.js"]
+CMD ["node", "index.js"]

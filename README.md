@@ -1,5 +1,9 @@
 # cc_projekt
 
+> Docker Repo:
+ - kupr744/prime-api:tagname
+ - kupr744/backend:tagname 
+
 # start web app
 
 ### 1. Start Kubernetes Cluster
