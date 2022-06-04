@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const cors = require('cors')
+const func = require('./function')
 
 require('dotenv').config();
 
@@ -26,5 +27,6 @@ app.get('/prime/:to/:from?', (req, res) => {
 })
 
 app.listen(port, () => {
+  console.log("node_env:", process.env.NODE_ENV)
   console.log('Server listening on', port)
 })
