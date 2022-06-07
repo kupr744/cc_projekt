@@ -13,7 +13,7 @@ if(process.env.NODE_ENV === 'development') {
 
 app.get('/prime/:to/:from?', (req, res) => {
   if(req.params.to === undefined && req.params.from === undefined) {
-    res.status(400).send("Syntax Error")
+    res.status(400).send("Bad Request")
   } else if(req.params.from === undefined) {
     res.setHeader('Content-Type', 'application/json');
     var primes = func.prime(1, parseInt(req.params.to))
