@@ -1,0 +1,26 @@
+name: deploy k8s cluster 2 gcloud
+
+on:
+  workflow_run:
+    workflows: ["µService deploy pipeline", "backend deploy pipeline"]
+    types:
+      - completed
+    branches: ["main"]
+
+env:
+  GCLOUD_PROJECT: ${{ secrets.GCLOUD_PROJECT }}
+  GCLOUD_ZONE: ${{ secrets.GCLOUD_ZONE }}
+  GCLOUD_AUTHENTICATION_JSON: ${{ secrets.GCLOUD_AUTHENTICATION_JSON }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: authenticate
+      uses: 'google-github-actions/auth@v0'
+      with:
+        credentials_json: '$GCLOUD_AUTHENTICATION_JSON'
+    
+    # TODO
+    - name: 
