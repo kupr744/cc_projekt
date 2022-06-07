@@ -5,7 +5,7 @@ const func = require('./function')
 
 require('dotenv').config();
 
-const port = process.env.NODE_ENV === 'development' ? 3001 : null;
+const port = 3001;
 
 if(process.env.NODE_ENV === 'development') {
   app.use(cors());
