@@ -7,4 +7,4 @@ cd ".."
 cd "prime-api"
 kubectl delete -f service.yaml
 kubectl delete -f deployment.yaml
-kubectl delete all --all -n ingress-nginx
+@REM kubectl delete all --all -n ingress-nginx
