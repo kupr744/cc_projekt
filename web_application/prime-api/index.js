@@ -17,12 +17,12 @@ app.get('/prime/:to/:from?', (req, res) => {
   } else if(req.params.from === undefined) {
     res.setHeader('Content-Type', 'application/json');
     var primes = func.prime(1, parseInt(req.params.to))
-    res.status(200).send({"result": primes})
+    res.status(200).send({"host": process.env.HOSTNAME, "result": primes})
   } else {
     res.setHeader('Content-Type', 'application/json');
     var primes = func.prime(parseInt(req.params.from), parseInt(req.params.to))
     console.log(JSON.stringify({result: primes}))
-    res.status(200).send({"result": primes})
+    res.status(200).send({"host": process.env.HOSTNAME, "result": primes})
   }
 })
 
