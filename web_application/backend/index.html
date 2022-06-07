@@ -15,8 +15,9 @@
           var to = document.getElementById("to").value;
 
           console.log('from', from , 'to', to);
-
-          await fetch("http://primeservice-clusterip-service/prime/" + to + '/' + from, {
+          
+          // TODO
+          await fetch("http://localhost/prime/" + to + '/' + from, {
             method: 'GET',
             headers: {
               'Allow-Control-Allow-Origin': '*',

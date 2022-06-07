@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: prime-api
-          image: prime-api
+          image: kupr744/prime-api
           env:
           - name: NODE_ENV
             value: "development"
