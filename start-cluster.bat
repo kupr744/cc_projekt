@@ -12,3 +12,6 @@ kubectl create -f service.yaml
 kubectl create -f deployment.yaml
 kubectl port-forward --namespace=ingress-nginx service/ingress-nginx-controller 8080:80
 echo "!! port-forwading localhost 8080 to k8s cluster"
+
+@REM if creating ingress fails
+@REM kubectl delete ValidationWebhookConfiguration nginx 
