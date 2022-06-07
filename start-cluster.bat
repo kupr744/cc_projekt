@@ -14,4 +14,5 @@ kubectl create -f deployment.yaml
 @REM echo "!! port-forwading localhost 8080 to k8s cluster"
 
 @REM if creating ingress fails
-@REM kubectl delete ValidationWebhookConfiguration nginx 
+@REM kubectl get ValidatingWebhookConfigurations
+@REM kubectl delete ValidatingWebhookConfigurations ingress-nginx-admission
