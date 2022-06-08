@@ -1,9 +1,9 @@
-name: backend deploy pipeline
+name: backend deploy 2 docker
 
 on:
   push:
     tags:
-      - 'v*'
+      - 'v*.*.*'
 
 jobs:
   deploy:

@@ -1,9 +1,9 @@
-name: µService deploy pipeline
+name: µService deploy 2 docker
 
 on:
   push: 
     tags:
-      - 'v*'
+      - 'v*.*.*'
 
 jobs:
   deploy:
