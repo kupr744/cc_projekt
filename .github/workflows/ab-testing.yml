@@ -46,6 +46,10 @@ jobs:
       with:
         credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
     
+    - name: connect to gke
+      run: |-
+        gcloud ${{ secrets.GKE }}
+
     - name: rollout
       run: |-
         kubectl apply -f canary_ingress.yaml
