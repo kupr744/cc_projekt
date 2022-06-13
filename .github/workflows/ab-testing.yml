@@ -1,17 +1,15 @@
-name: deploy k8s cluster 2 gcloud
+name: ab-testing
 
 on:
-  workflow_run:
-    workflows: ["µService deploy 2 docker"]
-    types:
-      - completed
-    branches: ["main"]
+  push:
+    branches:
+      - "ab-testing"
 
 env:
   GCLOUD_AUTHENTICATION_JSON: ${{ secrets.GCLOUD_AUTHENTICATION_JSON }}
 
 jobs:
-  deploy:
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -24,7 +22,9 @@ jobs:
         credentials_json: '$GCLOUD_AUTHENTICATION_JSON'
     
     - name: rollout
-      run: kubectl set image deployment/prime-api prime-api=kupr744/prime-api:${{github.ref_name}}
-
-    - name: remove canary files
-      run: kubectl delete all --all -n canary
+      run: |
+        kubectl apply -f canary_ingress.yaml
+        cd web_application/prime-api
+        kubectl apply -f canary_service.yaml
+        kubectl apply -f canary_deployment.yaml
+    
