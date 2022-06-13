@@ -19,6 +19,10 @@ jobs:
       with:
         credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
     
+    - name: connect to gke
+      run: |-
+        gcloud ${{ secrets.GKE }}
+
     - name: rollout
       run: |-
         kubectl set image deployment/prime-api prime-api=kupr744/prime-api:${{github.ref_name}}
