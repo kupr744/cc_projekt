@@ -2,12 +2,9 @@ name: deploy k8s cluster 2 gcloud
 
 on:
   workflow_run:
-    workflows: ["µService deploy 2 docker", "backend deploy 2 docker"]
+    workflows: ["µService deploy 2 docker"]
     types:
       - completed
-
-env:
-  GCLOUD_AUTHENTICATION_JSON: ${{ secrets.GCLOUD_AUTHENTICATION_JSON }}
 
 jobs:
   deploy:
@@ -20,7 +17,7 @@ jobs:
     - name: authenticate
       uses: 'google-github-actions/auth@v0'
       with:
-        credentials_json: '$GCLOUD_AUTHENTICATION_JSON'
+        credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
     
     - name: rollout
       run: kubectl set image deployment/prime-api prime-api=kupr744/prime-api:${{github.ref_name}}
