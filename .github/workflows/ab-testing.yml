@@ -52,6 +52,7 @@ jobs:
 
     - name: rollout
       run: |-
+        kubectl apply -f canary_namespace.yaml
         kubectl apply -f canary_ingress.yaml
         kubectl apply -f canary_service.yaml
         kubectl apply -f canary_deployment.yaml
