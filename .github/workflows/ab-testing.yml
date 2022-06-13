@@ -22,7 +22,7 @@ jobs:
         credentials_json: '$GCLOUD_AUTHENTICATION_JSON'
     
     - name: rollout
-      run: |
+      run: |-
         kubectl apply -f canary_ingress.yaml
         cd web_application/prime-api
         kubectl apply -f canary_service.yaml
