@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:  
+  name: backend-service-v2
+  namespace: canary
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 3000
+  selector:    
+    app: backend
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: prime-api-service-v2
+  namespace: canary
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 3001
+  selector:
+    app: prime-api

@@ -1,15 +1,18 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: myingress
+  name: myingress-v2
+  namespace: canary
   annotations:
     nginx.ingress.kubernetes.io/app-root: /
+    nginx.ingress.kubernetes.io/canary: "true"
+    nginx.ingress.kubernetes.io/canary-weight: "60"
   labels:
-    name: myingress
+    name: myingress-v2
 spec:
   defaultBackend:
     service:
-      name: backend-service
+      name: backend-service-v2
       port:
         number: 80
   rules:
@@ -19,15 +22,14 @@ spec:
           path: "/"
           backend:
             service:
-              name: backend-service
+              name: backend-service-v2
               port: 
                 number: 80
         - pathType: Prefix
           path: "/prime"
           backend:
             service:
-              name: prime-api-service
+              name: prime-api-service-v2
               port:
                 number: 80
   ingressClassName: nginx
-
