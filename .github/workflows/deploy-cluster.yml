@@ -20,7 +20,9 @@ jobs:
         credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
     
     - name: rollout
-      run: kubectl set image deployment/prime-api prime-api=kupr744/prime-api:${{github.ref_name}}
+      run: |-
+        kubectl set image deployment/prime-api prime-api=kupr744/prime-api:${{github.ref_name}}
 
     - name: remove canary files
-      run: kubectl delete all --all -n canary
+      run: |- 
+        kubectl delete all --all -n canary
