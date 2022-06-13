@@ -2,10 +2,9 @@ name: deploy k8s cluster 2 gcloud
 
 on:
   workflow_run:
-    workflows: ["µService deploy 2 docker"]
+    workflows: ["µService deploy 2 docker", "backend deploy 2 docker"]
     types:
       - completed
-    branches: ["main"]
 
 env:
   GCLOUD_AUTHENTICATION_JSON: ${{ secrets.GCLOUD_AUTHENTICATION_JSON }}
