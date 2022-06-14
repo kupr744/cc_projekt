@@ -1,0 +1,44 @@
+name: successful deploy email
+
+on:
+  workflow_run:
+    workflows: ["deploy k8s cluster 2 gcloud"]
+    types:
+      - completed
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: checkout
+      uses: actions/checkout@v3
+
+    - name: authenticate
+      uses: 'google-github-actions/auth@v0'
+      with:
+        credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
+    
+    - name: connect to gke
+      run: |-
+        gcloud ${{ secrets.GKE }}
+
+    - name: get deployment details
+      run: |-
+        touch deployment_info.html
+        kubectl describe deployments > deployment_info.html
+
+    - name: Send email
+      uses: dawidd6/action-send-mail@v3.6.1
+      with: 
+        server_adress: smtp.gmail.com
+        server_port: 465
+        username: ${{secrets.MAIL_USERNAME}}
+        password: ${{secrets.MAIL_PASSWORD}}
+        subject: Deployment results
+        to: 92doje1bif@hft-stuttgart.de
+        from: Elon Musk
+        secure: true
+        body: Deployment from ${{github.repository}} completed successfully!
+        html_body: file://deployment_info.html
