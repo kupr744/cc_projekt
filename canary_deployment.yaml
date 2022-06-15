@@ -45,7 +45,7 @@ spec:
 
     spec:
       containers:
-        - name: prime-api-v2
+        - name: prime-api-testing
           image: kupr744/prime-api-testing
           env:
           - name: NODE_ENV
