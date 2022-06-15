@@ -9,11 +9,6 @@ metadata:
   labels:
     name: myingress-v2
 spec:
-  defaultBackend:
-    service:
-      name: backend-service-v2
-      port:
-        number: 80
   rules:
     - http:
         paths:
