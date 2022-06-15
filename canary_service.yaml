@@ -9,8 +9,7 @@ spec:
     - port: 80
       targetPort: 3000
   selector:    
-    app: backend
-    version: v2
+    app: backend-canary
 ---
 apiVersion: v1
 kind: Service
@@ -23,5 +22,4 @@ spec:
     - port: 80
       targetPort: 3001
   selector:
-    app: prime-api
-    version: v2
+    app: prime-api-canary
