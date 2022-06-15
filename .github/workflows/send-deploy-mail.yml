@@ -42,3 +42,4 @@ jobs:
         secure: true
         body: Deployment from ${{github.repository}} completed successfully!
         html_body: file://deployment_info.html
+        
