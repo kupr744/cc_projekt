@@ -27,7 +27,9 @@ jobs:
     - name: get deployment details
       run: |-
         touch deployment_info.html
+        touch formatted_deployment_info.html
         kubectl describe deployments > deployment_info.html
+        sed ':a;N;$!ba;s/\n/<br>/g' deployment_info.html > formatted_deployment_info.html
 
     - name: Send email
       uses: dawidd6/action-send-mail@v3.6.1
@@ -41,4 +43,4 @@ jobs:
         from: Elon Musk
         secure: true
         body: Deployment from ${{github.repository}} completed successfully!
-        html_body: file://deployment_info.html
+        html_body: file://formatted_deployment_info.html
