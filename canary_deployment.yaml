@@ -4,15 +4,17 @@ metadata:
   name: backend-deployment-v2
   namespace: canary
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
-      app: backend-canary
+      app: backend
+      #version: v2
 
   template:
     metadata:
       labels:
-        app: backend-canary
+        app: backend
+        #version: v2
 
     spec:
       containers:
@@ -31,15 +33,17 @@ metadata:
   name: prime-api-v2
   namespace: canary
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
-      app: prime-api-canary
+      app: prime-api
+      #version: v2
 
   template:
     metadata:
       labels:
-        app: prime-api-canary
+        app: prime-api
+        #version: v2
 
     spec:
       containers:
