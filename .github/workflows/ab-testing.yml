@@ -33,7 +33,7 @@ jobs:
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/prime-api:testing
 
 
-  test:
+  deploy-2-gcloud:
     needs: deploy
     runs-on: ubuntu-latest
 
