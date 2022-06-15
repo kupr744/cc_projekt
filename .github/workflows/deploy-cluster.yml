@@ -96,6 +96,7 @@ jobs:
     - name: rollout
       run: |-
         kubectl set image deployment/prime-api prime-api=kupr744/prime-api:${{github.ref_name}}
+        kubectl set image deployment/backend backend=kupr744/backend:${{github.ref_name}}
 
     - name: remove canary files
       run: |- 
