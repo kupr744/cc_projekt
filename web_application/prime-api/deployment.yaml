@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: prime-api
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: prime-api
