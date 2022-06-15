@@ -34,8 +34,8 @@ jobs:
       with: 
         server_address: smtp.gmail.com
         server_port: 465
-        #username: ${{secrets.MAIL_USERNAME}}
-        #password: ${{secrets.MAIL_PASSWORD}}
+        username: ${{secrets.MAIL_USERNAME}}
+        password: ${{secrets.MAIL_PASSWORD}}
         subject: Deployment results
         to: 92doje1bif@hft-stuttgart.de
         from: Elon Musk
