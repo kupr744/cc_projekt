@@ -29,19 +29,17 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: prime-api-v2
+  name: prime-api-testing
 spec:
   replicas: 3
   selector:
     matchLabels:
       app: prime-api-testing
-      #version: v2
 
   template:
     metadata:
       labels:
         app: prime-api-testing
-        #version: v2
 
     spec:
       containers:
