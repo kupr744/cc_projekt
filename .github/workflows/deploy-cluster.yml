@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy-2-gcloud:
-    needs: [deploy-backend-docker, deploy-prime-docker]
+    needs: [deploy-prime-docker]
     runs-on: ubuntu-latest
 
     steps:
