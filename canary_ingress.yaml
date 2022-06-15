@@ -3,9 +3,8 @@ kind: Ingress
 metadata:
   name: myingress-v2
   annotations:
-    nginx.ingress.kubernetes.io/app-root: /
     nginx.ingress.kubernetes.io/canary: "true"
-    nginx.ingress.kubernetes.io/canary-weight: "60"
+    nginx.ingress.kubernetes.io/canary-weight: "20"
   labels:
     name: myingress-v2
 spec:
