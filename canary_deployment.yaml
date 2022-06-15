@@ -4,7 +4,7 @@ metadata:
   name: backend-deployment-v2
   namespace: canary
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: backend
@@ -33,7 +33,7 @@ metadata:
   name: prime-api-v2
   namespace: canary
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: prime-api-testing
