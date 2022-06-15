@@ -3,6 +3,7 @@ kind: Ingress
 metadata:
   name: myingress-v2
   annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
     nginx.ingress.kubernetes.io/canary: "true"
     nginx.ingress.kubernetes.io/canary-weight: "100"
   labels:
