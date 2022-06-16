@@ -62,6 +62,4 @@ jobs:
 
     - name: remove canary files
       run: |- 
-        kubectl delete ing myingress-v2
-        kubectl delete svc prime-api-service-v2
-        kubectl delete pod -l app=prime-api-testing
+        kubectl delete all --all -n canary
