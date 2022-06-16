@@ -2,8 +2,7 @@ name: µService pipeline
 
 on:
   pull_request:
-    branches:
-      - main, ab-testing
+    branches: ["main", "ab-testing"]
 
 jobs:
   build-and-test:
