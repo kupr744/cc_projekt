@@ -25,7 +25,7 @@
           }).then(res => res.json()
           ).then(data => {
             console.log(data);
-            document.getElementById("response").innerText = "host: " + data.host + "\r\nresult: " + data.result;
+            document.getElementById("response").innerText = "host: " + data.host + "\r\nresult: " + data.result + "\r\nversion: " + data.version;
           }).catch(err => {
             console.log(err);
             document.getElementById("response").textContent = "error: "+err;

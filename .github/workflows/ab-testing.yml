@@ -30,7 +30,7 @@ jobs:
         with:
           context: "{{defaultContext}}:web_application/prime-api"
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/prime-api:testing
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/prime-api-testing
 
 
   deploy-2-gcloud:
@@ -55,4 +55,5 @@ jobs:
         kubectl apply -f canary_ingress.yaml
         kubectl apply -f canary_service.yaml
         kubectl apply -f canary_deployment.yaml
+        
     
