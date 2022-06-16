@@ -22,7 +22,7 @@ app.get('/prime/:to/:from?', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     var primes = func.prime(parseInt(req.params.from), parseInt(req.params.to))
     console.log(JSON.stringify({result: primes}))
-    res.status(200).send({"host": process.env.HOSTNAME, "result": primes})
+    res.status(200).send({"host": process.env.HOSTNAME, "result": primes, "version": 2})
   }
 })
 
